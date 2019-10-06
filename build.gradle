@@ -1,0 +1,38 @@
+allprojects {
+    apply plugin: 'idea'
+
+    group = 'com.yuli'
+    version = '0.1-SNAPSHOT'
+}
+
+
+subprojects {
+    apply plugin: 'scala'
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
+    repositories {
+        mavenLocal()
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+        mavenCentral()
+    }
+
+    dependencies {
+        compile group: 'org.scala-lang', name: 'scala-library', version: '2.13.1'
+        compile group: 'com.typesafe.akka', name: 'akka-actor_2.13', version: '2.5.25'
+
+    }
+
+    task mkdirs() {
+        sourceSets*.scala.srcDirs*.each { it.mkdirs() }
+        sourceSets*.resources.srcDirs*.each { it.mkdirs() }
+    }
+
+}
+
+project(":memoryServer"){
+    dependencies {
+        compile project(":memoryDomain")
+        compile group: 'com.typesafe.akka', name: 'akka-remote_2.12', version: '2.5.25'
+    }
+}

@@ -1,8 +1,9 @@
 package com.yuli.memory.server
 
-import akka.actor.{ActorSystem, Props}
+import akka.actor.{ActorRef, ActorSystem, Props}
 
 object MemoryServerMain extends App {
   private val actorSystem = ActorSystem("memoryServer")
-  actorSystem.actorOf(Props[MemoryServer],"server")
+  private val server: ActorRef = actorSystem.actorOf(Props[MemoryServer],"server")
+
 }

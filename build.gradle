@@ -19,7 +19,7 @@ subprojects {
 
     dependencies {
         compile group: 'org.scala-lang', name: 'scala-library', version: '2.13.1'
-        compile group: 'com.typesafe.akka', name: 'akka-actor_2.13', version: '2.5.25'
+        compile group: 'com.typesafe.akka', name: 'akka-actor_2.13', version: '2.6.0'
 
     }
 
@@ -31,7 +31,7 @@ subprojects {
 }
 project(":common"){
     dependencies{
-        compile group: 'com.typesafe.akka', name: 'akka-remote_2.13', version: '2.5.25'
+        compile group: 'com.typesafe.akka', name: 'akka-remote_2.13', version: '2.6.0'
 
     }
 }
@@ -39,14 +39,14 @@ project(":common"){
 project(":memoryClient"){
     dependencies{
         compile project(":memoryDomain")
-        compile group: 'com.typesafe.akka', name: 'akka-remote_2.13', version: '2.5.25'
-        testCompile group: 'com.typesafe.akka', name: 'akka-testkit_2.13', version: '2.5.25'
+        compile group: 'com.typesafe.akka', name: 'akka-remote_2.13', version: '2.6.0'
+        testCompile group: 'com.typesafe.akka', name: 'akka-testkit_2.13', version: '2.6.0'
         testCompile group: 'org.scalatest', name: 'scalatest_2.13', version: '3.0.8'
     }
 }
 project(":memoryServer"){
     dependencies {
         compile project(":memoryDomain")
-        compile group: 'com.typesafe.akka', name: 'akka-remote_2.13', version: '2.5.25'
+        compile group: 'com.typesafe.akka', name: 'akka-remote_2.13', version: '2.6.0'
     }
 }
